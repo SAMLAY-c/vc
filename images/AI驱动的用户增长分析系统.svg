@@ -1,0 +1,67 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)"/>
+
+  <!-- Central AI brain -->
+  <circle cx="300" cy="200" r="60" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="300" cy="200" r="50" fill="rgba(255,255,255,0.15)"/>
+
+  <!-- Brain shape -->
+  <path d="M 280 180 Q 270 170 280 160 Q 290 150 310 150 Q 330 150 340 160 Q 350 170 340 180 Q 335 190 330 200 Q 335 210 340 220 Q 350 230 340 240 Q 330 250 310 250 Q 290 250 280 240 Q 270 230 280 220 Q 275 210 280 200 Q 275 190 280 180" fill="rgba(255,255,255,0.8)"/>
+
+  <!-- Neural network connections -->
+  <circle cx="285" cy="190" r="3" fill="#8b5cf6"/>
+  <circle cx="315" cy="190" r="3" fill="#8b5cf6"/>
+  <circle cx="300" cy="205" r="3" fill="#8b5cf6"/>
+  <circle cx="290" cy="215" r="3" fill="#8b5cf6"/>
+  <circle cx="310" cy="215" r="3" fill="#8b5cf6"/>
+
+  <!-- Connection lines -->
+  <line x1="285" y1="190" x2="315" y2="190" stroke="#8b5cf6" stroke-width="1"/>
+  <line x1="285" y1="190" x2="300" y2="205" stroke="#8b5cf6" stroke-width="1"/>
+  <line x1="315" y1="190" x2="300" y2="205" stroke="#8b5cf6" stroke-width="1"/>
+  <line x1="300" y1="205" x2="290" y2="215" stroke="#8b5cf6" stroke-width="1"/>
+  <line x1="300" y1="205" x2="310" y2="215" stroke="#8b5cf6" stroke-width="1"/>
+
+  <!-- User icons around -->
+  <circle cx="150" cy="120" r="20" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="150" cy="120" r="15" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="150" cy="115" r="8" fill="rgba(255,255,255,0.8)"/>
+  <path d="M 135 125 Q 150 130 165 125" fill="rgba(255,255,255,0.8)"/>
+
+  <circle cx="450" cy="120" r="20" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="450" cy="120" r="15" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="450" cy="115" r="8" fill="rgba(255,255,255,0.8)"/>
+  <path d="M 435 125 Q 450 130 465 125" fill="rgba(255,255,255,0.8)"/>
+
+  <circle cx="150" cy="280" r="20" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="150" cy="280" r="15" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="150" cy="275" r="8" fill="rgba(255,255,255,0.8)"/>
+  <path d="M 135 285 Q 150 290 165 285" fill="rgba(255,255,255,0.8)"/>
+
+  <circle cx="450" cy="280" r="20" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="450" cy="280" r="15" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="450" cy="275" r="8" fill="rgba(255,255,255,0.8)"/>
+  <path d="M 435 285 Q 450 290 465 285" fill="rgba(255,255,255,0.8)"/>
+
+  <!-- Growth arrows pointing to center -->
+  <polygon points="180,130 220,160 210,165 225,170 210,175 220,180 180,150" fill="rgba(255,255,255,0.6)"/>
+  <polygon points="420,130 380,160 390,165 375,170 390,175 380,180 420,150" fill="rgba(255,255,255,0.6)"/>
+  <polygon points="180,270 220,240 210,235 225,230 210,225 220,220 180,250" fill="rgba(255,255,255,0.6)"/>
+  <polygon points="420,270 380,240 390,235 375,230 390,225 380,220 420,250" fill="rgba(255,255,255,0.6)"/>
+
+  <!-- Growth chart in corner -->
+  <rect x="50" y="320" width="100" height="60" fill="rgba(255,255,255,0.1)"/>
+  <polyline points="60,370 70,360 80,350 90,340 100,345 110,330 120,325 130,315 140,310" fill="none" stroke="#10b981" stroke-width="2"/>
+  <text x="100" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">用户增长</text>
+
+  <!-- Text -->
+  <text x="300" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">AI驱动的用户增长分析系统</text>
+  <text x="300" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.8)">智能分析·精准预测</text>
+</svg>

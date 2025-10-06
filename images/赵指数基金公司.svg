@@ -1,0 +1,77 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)"/>
+
+  <!-- Office building -->
+  <rect x="150" y="120" width="300" height="200" fill="rgba(255,255,255,0.1)"/>
+  <rect x="160" y="130" width="280" height="180" fill="rgba(255,255,255,0.15)"/>
+
+  <!-- Building windows -->
+  <rect x="180" y="150" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="220" y="150" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="260" y="150" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="300" y="150" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="340" y="150" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="380" y="150" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+
+  <rect x="180" y="190" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="220" y="190" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="260" y="190" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="300" y="190" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="340" y="190" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="380" y="190" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+
+  <rect x="180" y="230" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="220" y="230" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="260" y="230" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="300" y="230" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="340" y="230" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="380" y="230" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+
+  <rect x="180" y="270" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="220" y="270" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="260" y="270" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="300" y="270" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="340" y="270" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+  <rect x="380" y="270" width="30" height="25" fill="rgba(255,255,255,0.3)"/>
+
+  <!-- Company entrance -->
+  <rect x="270" y="290" width="60" height="30" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="290" cy="305" r="3" fill="rgba(255,255,255,0.8)"/>
+  <circle cx="310" cy="305" r="3" fill="rgba(255,255,255,0.8)"/>
+
+  <!-- Finance chart/graph -->
+  <rect x="100" y="140" width="40" height="30" fill="rgba(255,255,255,0.1)"/>
+  <polyline points="105,165 110,160 115,155 120,150 125,145 130,140 135,145" fill="none" stroke="#10b981" stroke-width="2"/>
+
+  <rect x="460" y="140" width="40" height="30" fill="rgba(255,255,255,0.1)"/>
+  <polyline points="465,165 470,160 475,155 480,150 485,145 490,140 495,145" fill="none" stroke="#f59e0b" stroke-width="2"/>
+
+  <!-- Data analysis elements -->
+  <circle cx="100" cy="220" r="25" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="100" cy="220" r="20" fill="rgba(255,255,255,0.2)"/>
+  <text x="100" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">30%</text>
+  <text x="100" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="rgba(255,255,255,0.8)">效率提升</text>
+
+  <circle cx="500" cy="220" r="25" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="500" cy="220" r="20" fill="rgba(255,255,255,0.2)"/>
+  <text x="500" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">AI</text>
+  <text x="500" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="rgba(255,255,255,0.8)">数据分析</text>
+
+  <!-- Company name banner -->
+  <rect x="150" y="80" width="300" height="35" rx="17" fill="rgba(255,255,255,0.1)"/>
+  <text x="300" y="102" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">赵指数基金公司</text>
+
+  <!-- Department text -->
+  <text x="300" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.8)">数据分析部门</text>
+
+  <!-- Bottom text -->
+  <text x="300" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">2024.12 - 2025.03</text>
+  <text x="300" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.8)">数据分析实习生</text>
+</svg>
