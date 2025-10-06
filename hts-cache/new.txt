@@ -1,0 +1,6 @@
+date	size'/'remotesize	flags(request:Update,Range state:File response:Modified,Chunked,gZipped)	statuscode	status ('servermsg')	MIME	Etag|Date	URL	localfile	(from URL)
+14:31:14	771/771	---MCZ	200	added ('OK')	text/plain	date:Sun,%2005%20Oct%202025%2006:31:09%20GMT	https://career.chenggao.top/robots.txt		(from )
+14:31:15	471/471	---MCZ	200	added ('OK')	text/html	date:Sat,%2020%20Sep%202025%2005:36:25%20GMT	https://career.chenggao.top/	E:/clone/vc/career.chenggao.top/index.html	(from )
+14:31:15	9379/9379	---MCZ	404	error ('Not%20Found')	text/html	date:Sun,%2005%20Oct%202025%2006:31:10%20GMT	https://career.chenggao.top/vite.svg	E:/clone/vc/career.chenggao.top/vite.svg	(from https://career.chenggao.top/)
+14:31:16	221941/221941	---M-Z	200	added ('OK')	application/javascript	etag:W/%2268ce3d59-362f5%22	https://career.chenggao.top/assets/index-D3xhKVk7.js	E:/clone/vc/career.chenggao.top/assets/index-D3xhKVk7.js	(from https://career.chenggao.top/)
+14:31:17	30270/30270	---M-Z	200	added ('OK')	text/css	etag:W/%2268ce3d59-763e%22	https://career.chenggao.top/assets/index-BC572Gks.css	E:/clone/vc/career.chenggao.top/assets/index-BC572Gks.css	(from https://career.chenggao.top/)
