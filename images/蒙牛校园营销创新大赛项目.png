@@ -1,0 +1,85 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)"/>
+
+  <!-- Marketing funnel -->
+  <path d="M 200 100 L 400 100 L 380 150 L 220 150 Z" fill="rgba(255,255,255,0.2)"/>
+  <path d="M 220 150 L 380 150 L 360 200 L 240 200 Z" fill="rgba(255,255,255,0.3)"/>
+  <path d="M 240 200 L 360 200 L 340 250 L 260 250 Z" fill="rgba(255,255,255,0.4)"/>
+  <path d="M 260 250 L 340 250 L 320 300 L 280 300 Z" fill="rgba(255,255,255,0.5)"/>
+
+  <!-- Funnel labels -->
+  <text x="300" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">拉新</text>
+  <text x="300" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">促活</text>
+  <text x="300" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">留存</text>
+  <text x="300" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">转化</text>
+
+  <!-- Arrow flow -->
+  <polygon points="300,90 290,70 295,70 295,60 305,60 305,70 310,70" fill="rgba(255,255,255,0.8)"/>
+  <polygon points="300,310 290,330 295,330 295,340 305,340 305,330 310,330" fill="rgba(255,255,255,0.8)"/>
+
+  <!-- User icons -->
+  <circle cx="150" cy="120" r="15" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="150" cy="117" r="6" fill="rgba(255,255,255,0.8)"/>
+  <path d="M 140 127 Q 150 130 160 127" fill="rgba(255,255,255,0.8)"/>
+
+  <circle cx="450" cy="120" r="15" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="450" cy="117" r="6" fill="rgba(255,255,255,0.8)"/>
+  <path d="M 440 127 Q 450 130 460 127" fill="rgba(255,255,255,0.8)"/>
+
+  <circle cx="170" cy="180" r="15" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="170" cy="177" r="6" fill="rgba(255,255,255,0.8)"/>
+  <path d="M 160 187 Q 170 190 180 187" fill="rgba(255,255,255,0.8)"/>
+
+  <circle cx="430" cy="180" r="15" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="430" cy="177" r="6" fill="rgba(255,255,255,0.8)"/>
+  <path d="M 420 187 Q 430 190 440 187" fill="rgba(255,255,255,0.8)"/>
+
+  <!-- AI chat bubble -->
+  <ellipse cx="100" cy="220" rx="40" ry="25" fill="rgba(255,255,255,0.2)"/>
+  <polygon points="80,235 90,235 100,245" fill="rgba(255,255,255,0.2)"/>
+  <text x="100" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">AI助手</text>
+
+  <!-- Milk cow mascot (simplified) -->
+  <ellipse cx="500" cy="200" rx="30" ry="20" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="485" cy="195" r="8" fill="rgba(255,255,255,0.6)"/>
+  <circle cx="515" cy="195" r="8" fill="rgba(255,255,255,0.6)"/>
+  <ellipse cx="490" cy="210" rx="5" ry="8" fill="rgba(255,255,255,0.5)"/>
+  <ellipse cx="510" cy="210" rx="5" ry="8" fill="rgba(255,255,255,0.5)"/>
+  <!-- Spots on cow -->
+  <circle cx="495" cy="200" r="3" fill="#10b981"/>
+  <circle cx="505" cy="205" r="2" fill="#10b981"/>
+  <circle cx="490" cy="208" r="2" fill="#10b981"/>
+
+  <!-- Trophy -->
+  <path d="M 520 150 L 520 180 Q 520 190 530 195 L 550 195 Q 560 190 560 180 L 560 150 Z" fill="rgba(255,215,0,0.6)"/>
+  <rect x="535" y="195" width="10" height="10" fill="rgba(255,215,0,0.6)"/>
+  <rect x="525" y="205" width="30" height="8" fill="rgba(255,215,0,0.6)"/>
+  <text x="540" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fff">TOP20</text>
+
+  <!-- Competition banner -->
+  <rect x="100" y="40" width="400" height="30" rx="15" fill="rgba(255,255,255,0.1)"/>
+  <text x="300" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">蒙牛校园营销创新大赛</text>
+
+  <!-- Growth metrics -->
+  <rect x="80" y="320" width="120" height="60" fill="rgba(255,255,255,0.1)"/>
+  <text x="140" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">用户增长</text>
+  <text x="140" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">+45%</text>
+  <text x="140" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="rgba(255,255,255,0.6)">社媒讨论量</text>
+
+  <rect x="240" y="320" width="120" height="60" fill="rgba(255,255,255,0.1)"/>
+  <text x="300" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">购买频率</text>
+  <text x="300" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">+28%</text>
+  <text x="300" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="rgba(255,255,255,0.6)">月度提升</text>
+
+  <rect x="400" y="320" width="120" height="60" fill="rgba(255,255,255,0.1)"/>
+  <text x="460" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">品牌认知</text>
+  <text x="460" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">+67%</text>
+  <text x="460" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="rgba(255,255,255,0.6)">校园调研</text>
+</svg>
