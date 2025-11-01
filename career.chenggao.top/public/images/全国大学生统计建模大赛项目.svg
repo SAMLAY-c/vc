@@ -1,0 +1,76 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)"/>
+
+  <!-- Graph/chart background -->
+  <rect x="150" y="100" width="300" height="200" fill="rgba(255,255,255,0.1)"/>
+  <rect x="160" y="110" width="280" height="180" fill="rgba(0,0,0,0.2)"/>
+
+  <!-- Statistical elements -->
+  <!-- Bar chart -->
+  <rect x="180" y="240" width="30" height="40" fill="#10b981"/>
+  <rect x="220" y="220" width="30" height="60" fill="#10b981"/>
+  <rect x="260" y="200" width="30" height="80" fill="#10b981"/>
+  <rect x="300" y="180" width="30" height="100" fill="#10b981"/>
+  <rect x="340" y="160" width="30" height="120" fill="#10b981"/>
+  <rect x="380" y="190" width="30" height="90" fill="#10b981"/>
+
+  <!-- Line chart overlay -->
+  <polyline points="195,230 235,210 275,190 315,170 355,150 395,180" fill="none" stroke="#f59e0b" stroke-width="3"/>
+  <circle cx="195" cy="230" r="4" fill="#f59e0b"/>
+  <circle cx="235" cy="210" r="4" fill="#f59e0b"/>
+  <circle cx="275" cy="190" r="4" fill="#f59e0b"/>
+  <circle cx="315" cy="170" r="4" fill="#f59e0b"/>
+  <circle cx="355" cy="150" r="4" fill="#f59e0b"/>
+  <circle cx="395" cy="180" r="4" fill="#f59e0b"/>
+
+  <!-- Axes -->
+  <line x1="170" y1="280" x2="420" y2="280" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+  <line x1="170" y1="120" x2="170" y2="280" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+
+  <!-- Mathematical symbols -->
+  <text x="450" y="150" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="rgba(255,255,255,0.8)">Σ</text>
+  <text x="450" y="180" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="rgba(255,255,255,0.8)">μ</text>
+  <text x="450" y="210" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="rgba(255,255,255,0.8)">σ</text>
+  <text x="450" y="240" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="rgba(255,255,255,0.8)">R²</text>
+
+  <!-- Calculator icon -->
+  <rect x="80" y="180" width="60" height="80" rx="10" fill="rgba(255,255,255,0.2)"/>
+  <rect x="90" y="190" width="40" height="60" fill="rgba(0,0,0,0.3)"/>
+  <!-- Calculator buttons -->
+  <rect x="95" y="195" width="8" height="8" fill="rgba(255,255,255,0.6)"/>
+  <rect x="107" y="195" width="8" height="8" fill="rgba(255,255,255,0.6)"/>
+  <rect x="119" y="195" width="8" height="8" fill="rgba(255,255,255,0.6)"/>
+
+  <rect x="95" y="207" width="8" height="8" fill="rgba(255,255,255,0.6)"/>
+  <rect x="107" y="207" width="8" height="8" fill="rgba(255,255,255,0.6)"/>
+  <rect x="119" y="207" width="8" height="8" fill="rgba(255,255,255,0.6)"/>
+
+  <rect x="95" y="219" width="8" height="8" fill="rgba(255,255,255,0.6)"/>
+  <rect x="107" y="219" width="8" height="8" fill="rgba(255,255,255,0.6)"/>
+  <rect x="119" y="219" width="8" height="8" fill="rgba(255,255,255,0.6)"/>
+
+  <rect x="95" y="231" width="8" height="8" fill="rgba(255,255,255,0.6)"/>
+  <rect x="107" y="231" width="8" height="8" fill="rgba(255,255,255,0.6)"/>
+  <rect x="119" y="231" width="20" height="8" fill="#10b981"/>
+
+  <!-- Trophy/medal -->
+  <circle cx="520" cy="200" r="30" fill="rgba(255,215,0,0.3)"/>
+  <circle cx="520" cy="200" r="25" fill="rgba(255,215,0,0.6)"/>
+  <text x="520" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#fff">2</text>
+
+  <!-- Competition banner -->
+  <rect x="100" y="60" width="400" height="30" rx="15" fill="rgba(255,255,255,0.1)"/>
+  <text x="300" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">全国大学生统计建模大赛</text>
+
+  <!-- Bottom text -->
+  <text x="300" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">天津赛区二等奖</text>
+  <text x="300" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.8)">数据驱动增长实验项目</text>
+  <text x="300" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">机器学习 · 用户分析 · 预测建模</text>
+</svg>

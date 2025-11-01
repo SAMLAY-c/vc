@@ -2,21 +2,27 @@
 
 ## 启动方式
 
-由于CORS策略限制，不能直接打开 `index.html` 文件。需要通过HTTP服务器访问。
+这是一个基于Vite的React项目，需要使用开发服务器运行。
 
 ### 正确的启动方式
 
-1. 启动本地服务器：
+1. 进入项目目录并安装依赖：
 ```bash
 cd career.chenggao.top
-python -m http.server 8000
+npm install
 ```
 
-2. 在浏览器中访问：http://localhost:8000
+2. 启动开发服务器：
+```bash
+npm run dev
+```
+
+3. 在浏览器中访问：http://localhost:5174（如果5173端口被占用，Vite会自动选择下一个可用端口）
 
 ### 错误方式
 ❌ 不要直接双击打开 `index.html` 文件
 ❌ 不要使用 `file:///` 协议访问
+❌ 不要使用 `python -m http.server`（无法正确处理React路由和模块）
 
 ## 项目结构
 
