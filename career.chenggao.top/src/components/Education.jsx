@@ -10,7 +10,7 @@ const Education = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">教育背景</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            从985高校到香港名校，持续追求学术卓越与专业成长
+            持续关注AI前沿知识
           </p>
         </div>
 

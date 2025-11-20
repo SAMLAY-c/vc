@@ -1,10 +1,73 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { ExternalLink, Calendar, Users, Building, CheckCircle } from 'lucide-react'
 import { projectData } from '../data/resumeData.js'
 import { links } from '../data/resumeData.js'
 
+// SVG Icons for projects
+const AIEducationIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    style={{ width: '24px', height: '24px' }}
+  >
+    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <circle cx="12" cy="8" r="1" fill="currentColor"/>
+    <circle cx="12" cy="16" r="1" fill="currentColor"/>
+  </svg>
+)
+
+const GrowthStrategyIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    style={{ width: '24px', height: '24px' }}
+  >
+    <path d="M3 3V18C3 19.1046 3.89543 20 5 20H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M18 13L15 10L12 13L9 10L6 13L3 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <circle cx="18" cy="8" r="3" fill="none" stroke="currentColor" strokeWidth="2"/>
+  </svg>
+)
+
+const DataScienceIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    style={{ width: '24px', height: '24px' }}
+  >
+    <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
+    <path d="M12 1V6M12 18V23M4.22 4.22L7.05 7.05M16.95 16.95L19.78 19.78M1 12H6M18 12H23M4.22 19.78L7.05 16.95M16.95 7.05L19.78 4.22" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M7 12C7 14.7614 9.23858 17 12 17C14.7614 17 17 14.7614 17 12" stroke="currentColor" strokeWidth="2" strokeDasharray="0.5 1.5"/>
+  </svg>
+)
+
+const getProjectIcon = (category) => {
+  switch (category) {
+    case "ai-pm":
+      return <AIEducationIcon />
+    case "growth":
+      return <GrowthStrategyIcon />
+    case "data-science":
+      return <DataScienceIcon />
+    default:
+      return <CheckCircle size={24} />
+  }
+}
+
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("all")
+  const navigate = useNavigate()
 
   const categories = [
     { id: "all", label: "全部项目" },
@@ -77,16 +140,21 @@ const Projects = () => {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 cursor-pointer"
+              onClick={() => {
+                if (project.link && project.link !== "#") {
+                  navigate(project.link)
+                }
+              }}
             >
-              {/* Project Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                />
-                <div className="absolute top-4 right-4">
+              {/* Project Header with Icon */}
+              <div className="relative h-20 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden">
+                <div className="absolute top-1/2 left-6 transform -translate-y-1/2">
+                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-md text-blue-600">
+                    {getProjectIcon(project.category)}
+                  </div>
+                </div>
+                <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(project.status)}`}>
                     {getStatusText(project.status)}
                   </span>
@@ -95,19 +163,10 @@ const Projects = () => {
 
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
-                  {project.link && project.link !== "#" ? (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 hover:text-blue-600 transition-colors"
-                    >
-                      {project.title}
-                      <ExternalLink size={16} className="flex-shrink-0" />
-                    </a>
-                  ) : (
-                    project.title
+                <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2 flex items-center gap-2">
+                  {project.title}
+                  {project.link && project.link !== "#" && (
+                    <ExternalLink size={16} className="flex-shrink-0 text-blue-600" />
                   )}
                 </h3>
 

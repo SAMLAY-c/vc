@@ -6,7 +6,7 @@ export const personalInfo = {
   title: "经济学本科生 · AI/LLM技术爱好者与应用者 · 数据分析师 · 增长黑客实践者",
   description: "经济学专业背景，兼具AI技术应用、数据科学和用户增长领域的专业能力。具备产品经理的用户洞察力、增长黑客的策略思维以及数据分析师的技术执行力。",
   avatar: "/images/林承列头像.jpg", // 匹配实际存在的头像文件
-  location: "天津",
+  location: "北京市朝阳区",
   school: "天津师范大学",
   status: "在读本科生",
   email: "15396631779@163.com",
@@ -41,17 +41,18 @@ export const internshipData = [
     period: "2025.07 -  至今", // 请替换为实际时间
     location: "北京 朝阳区", // 请替换为实际地点
     status: "progressing",
+    link: "/internship/17qi-tech",
     responsibilities: [
-      "负责AI内容生成（AIGC）产品从0到1的规划与设计，主导AI语音克隆与个性化报告两大核心项目，输出MVP及最终产品方案。",
-      "跟进研发与算法团队，解决音画同步、模型TPM限制等技术瓶颈，负责产品方案评审与落地，确保项目按期高质量交付。",
-      "基于核心增长目标，结合数据分析与用户反馈，设计并推动产品迭代优化，为批量化内容生产和精细化运营提供支持。"
+      "主导个性化AI语音讲题服务从0到1的产品规划与设计，结合语音克隆技术，为学生提供AI驱动的个性化语音讲解体验。",
+      "负责个性化AI学习报告产品的全生命周期管理，通过AIGC技术实现学生学习数据的智能分析和个性化学习路径推荐。",
+      "设计并推动直播间AI批改功能的商业化落地，实现实时AI辅助教学和智能内容生成，提升教学效率和学习效果。"
     ],
     achievements: [
       "主导2个核心AI项目从0到1的商业化落地，包括个性化报告与AI语音克隆工具。",
       "通过引入AIGC技术，将核心内容生产效率提升300%，语音克隆准确率提升30%。",
       "成功构建自动化内容生产工作流，显著降低关键系统失败率，已稳定应用于商业化场景。"
     ],
-    image: "/images/一起科技教育.jpg" // 一起科技教育公司图片
+    image: "/images/一起科技教育.jpg" // 使用实际的公司图片
   },
   {
     id: 2,
@@ -61,6 +62,7 @@ export const internshipData = [
     period: "2024.12 - 2025.03",
     location: "远程", // Assuming remote or you can specify the city
     status: "completed",
+    link: "/internship/zhao-index",
     responsibilities: [
       "负责数据驱动的策略评估与监控体系搭建",
       "主导开发Python自动化脚本，调用Baostock API实现海量金融数据的每日自动化清洗与处理",
@@ -71,16 +73,36 @@ export const internshipData = [
       "将数据准备效率提升了约50%",
       "成功构建了多维度基金策略实时监控系统"
     ],
-    image: "/images/赵标科技（北京）有限公司.png" // 赵标科技公司图片
+    image: "/images/赵标科技（北京）有限公司.png" // 使用实际的公司logo
   }
 ]
 
 export const projectData = [
   {
-    // This is the new Ed-Tech AI PM project section you requested.
+    // 共享充电宝选址优化项目 (2025.03 - 最新开始)
     id: 1,
+    title: "共享充电宝选址优化 (全国大学生统计建模大赛)",
+    category: "data-science",
+    link: "/project/powerbank-location",
+    description: "为提升共享充电宝使用频次与用户留存，主导数据驱动的选址优化项目。通过Python爬取并分析超1000条用户反馈，精准定位了\"高峰期网点供不应求\"是用户流失的关键环节。",
+    image: "/images/全国大学生统计建模大赛项目.png", // 匹配实际存在的项目图片
+    technologies: ["Python", "机器学习", "LSTM", "随机森林", "高德地图API", "数据可视化"],
+    achievements: [
+      "荣获天津赛区二等奖",
+      "利用高德地图API与机器学习模型，量化预测了20个最优投放点位",
+      "项目旨在有效提升网点的订单转化率和用户满意度"
+    ],
+    period: "2025.03 - 2025.05",
+    team: "项目负责人",
+    company: "全国大学生统计建模大赛",
+    status: "completed"
+  },
+  {
+    // AI教育产品设计项目 (2025.02 - 第二新)
+    id: 2,
     title: "AI教育产品设计 (全国人工智能应用创新大赛)",
     category: "ai-pm",
+    link: "/project/ai-education",
     description: "作为AI产品经理，针对教育场景\"千人一卷\"的效率瓶颈，通过用户访谈挖掘核心痛点，设计并构建了一款能基于学生历史答题数据、智能生成个性化试卷的AI产品，旨在提升学习效率与用户留存。",
     image: "/images/全国人工智能应用创新大赛项目.png", // 匹配实际存在的项目图片
     technologies: ["产品管理", "用户研究", "Baidu AppBuilder", "大语言模型 (LLM)", "知识图谱"],
@@ -95,9 +117,11 @@ export const projectData = [
     status: "completed"
   },
   {
-    id: 2,
+    // 用户增长策略设计项目 (2024.08 - 最早开始)
+    id: 3,
     title: "用户增长策略设计 (蒙牛校园营销创新大赛)",
     category: "growth",
+    link: "/project/growth-strategy",
     description: "针对年轻用户新增乏力、留存低的痛点，主导设计了一套覆盖拉新、促活、留存的全链路用户增长方案。策划UGC活动并引入AI聊天助手概念，通过高频互动增强用户粘性，提升长期留存。",
     image: "/images/蒙牛校园营销创新大赛项目.png", // 匹配实际存在的项目图片
     technologies: ["用户增长", "增长策略", "UGC运营", "数据分析", "AI概念设计"],
@@ -109,23 +133,6 @@ export const projectData = [
     period: "2024.08 - 2024.12",
     team: "策略负责人",
     company: "\"优益C杯\"蒙牛校园营销创新大赛",
-    status: "completed"
-  },
-  {
-    id: 3,
-    title: "共享充电宝选址优化 (全国大学生统计建模大赛)",
-    category: "data-science",
-    description: "为提升共享充电宝使用频次与用户留存，主导数据驱动的选址优化项目。通过Python爬取并分析超1000条用户反馈，精准定位了\"高峰期网点供不应求\"是用户流失的关键环节。",
-    image: "/images/全国大学生统计建模大赛项目.png", // 匹配实际存在的项目图片
-    technologies: ["Python", "机器学习", "LSTM", "随机森林", "高德地图API", "数据可视化"],
-    achievements: [
-      "荣获天津赛区二等奖",
-      "利用高德地图API与机器学习模型，量化预测了20个最优投放点位",
-      "项目旨在有效提升网点的订单转化率和用户满意度"
-    ],
-    period: "2025.03 - 2025.05",
-    team: "项目负责人",
-    company: "全国大学生统计建模大赛",
     status: "completed"
   }
 ]

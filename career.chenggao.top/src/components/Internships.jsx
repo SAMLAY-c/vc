@@ -1,8 +1,10 @@
 import React from 'react'
-import { Calendar, MapPin, Briefcase, Trophy } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { Calendar, MapPin, Briefcase, Trophy, ExternalLink } from 'lucide-react'
 import { internshipData } from '../data/resumeData.js'
 
 const Internships = () => {
+  const navigate = useNavigate()
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -35,16 +37,18 @@ const Internships = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">实习经历</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            在多家知名金融机构的实习经历，积累了丰富的行业经验和专业技能
-          </p>
-        </div>
+          </div>
 
         <div className="space-y-8">
           {internshipData.map((internship) => (
             <div
               key={internship.id}
-              className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+              onClick={() => {
+                if (internship.link && internship.link !== "#") {
+                  navigate(internship.link)
+                }
+              }}
             >
               <div className="md:flex">
                 {/* Image */}
@@ -72,7 +76,12 @@ const Internships = () => {
                     <span>{internship.location}</span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{internship.position}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1 flex items-center gap-2">
+                    {internship.position}
+                    {internship.link && internship.link !== "#" && (
+                      <ExternalLink size={16} className="flex-shrink-0 text-blue-600" />
+                    )}
+                  </h3>
                   <h4 className="text-lg font-semibold text-blue-600 mb-1">{internship.company}</h4>
                   <p className="text-gray-600 mb-4">{internship.department}</p>
 
@@ -84,12 +93,62 @@ const Internships = () => {
                         主要职责
                       </h5>
                       <ul className="space-y-2">
-                        {internship.responsibilities.map((responsibility, index) => (
-                          <li key={index} className="text-sm text-gray-600 flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
-                            {responsibility}
-                          </li>
-                        ))}
+                        {internship.responsibilities.map((responsibility, index) => {
+                          if (internship.company === "一起科技教育") {
+                            // 一起科技教育的特殊处理
+                            const projectLinks = [
+                              '/project/ai-voice-teaching',
+                              '/project/ai-learning-report',
+                              '/project/ai-live-grading'
+                            ];
+
+                            const highlightTexts = [
+                              '个性化AI语音讲题服务',
+                              '个性化AI学习报告',
+                              '直播间AI批改'
+                            ];
+
+                            return (
+                              <li key={index} className="text-sm text-gray-600 flex items-start gap-2">
+                                <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
+                                <span>
+                                  {highlightTexts.map((text, textIndex) => {
+                                    if (responsibility.includes(text)) {
+                                      return (
+                                        <span key={textIndex}>
+                                          {responsibility.split(text)[0]}
+                                          <span
+                                            className="cursor-pointer hover:text-blue-600 transition-colors font-medium"
+                                            style={{
+                                              borderBottom: '2px solid #3B82F6',
+                                              textDecoration: 'none',
+                                              paddingBottom: '2px'
+                                            }}
+                                            onClick={(e) => {
+                                              e.stopPropagation();
+                                              navigate(projectLinks[textIndex]);
+                                            }}
+                                          >
+                                            {text}
+                                          </span>
+                                          {responsibility.split(text)[1]}
+                                        </span>
+                                      );
+                                    }
+                                    return null;
+                                  }) || responsibility}
+                                </span>
+                              </li>
+                            );
+                          }
+
+                          return (
+                            <li key={index} className="text-sm text-gray-600 flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
+                              {responsibility}
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
 
@@ -120,12 +179,12 @@ const Internships = () => {
           <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">实习经历总结</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">18个月</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">8个月</div>
               <div className="text-sm text-gray-600">累计实习时长</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-600 mb-2">4个</div>
-              <div className="text-sm text-gray-600">覆盖金融领域</div>
+              <div className="text-3xl font-bold text-green-600 mb-2">2个</div>
+              <div className="text-sm text-gray-600">实习公司</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-purple-600 mb-2">3名</div>
