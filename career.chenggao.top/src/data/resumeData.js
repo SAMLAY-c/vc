@@ -117,8 +117,27 @@ export const projectData = [
     status: "completed"
   },
   {
-    // 用户增长策略设计项目 (2024.08 - 最早开始)
+    // Dataease看板AI帮助流分析项目 (新增)
     id: 3,
+    title: "Dataease看板AI帮助流分析",
+    category: "ai-pm",
+    link: "/project/dataease-ai-analysis",
+    description: "主导Dataease看板AI帮助流分析，通过AI技术精准定位'沟通质量参差不齐'是转化率的核心瓶颈，创新性地提出'用AI模拟优秀辅导的结构化思考'作为解决方案。",
+    image: "/images/一起科技教育.jpg", // 使用公司图片
+    technologies: ["数据分析", "AI产品", "产品设计", "业务洞察", "SOP设计", "用户研究"],
+    achievements: [
+      "成功定位转化率核心瓶颈，提出AI结构化思考解决方案",
+      "设计'AI沟通卡片'三大核心模块，将数据洞察转化为可执行行动项",
+      "成为管理者追踪续报战役进度的'单一事实来源'"
+    ],
+    period: "2025.07 - 至今",
+    team: "AI产品经理",
+    company: "一起科技教育",
+    status: "completed"
+  },
+  {
+    // 用户增长策略设计项目 (2024.08 - 最早开始)
+    id: 4,
     title: "用户增长策略设计 (蒙牛校园营销创新大赛)",
     category: "growth",
     link: "/project/growth-strategy",

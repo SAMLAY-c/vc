@@ -112,7 +112,7 @@ const Internships = () => {
                               <li key={index} className="text-sm text-gray-600 flex items-start gap-2">
                                 <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
                                 <span>
-                                  {highlightTexts.map((text, textIndex) => {
+                                  {index < 3 && highlightTexts.map((text, textIndex) => {
                                     if (responsibility.includes(text)) {
                                       return (
                                         <span key={textIndex}>

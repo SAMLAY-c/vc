@@ -237,7 +237,7 @@ const InternshipDetail = () => {
                       <li key={index} className="flex items-start gap-3">
                         <Briefcase size={20} className="text-purple-500 flex-shrink-0 mt-0.5" />
                         <span>
-                          {highlightTexts.map((text, textIndex) => {
+                          {index < 3 ? highlightTexts.map((text, textIndex) => {
                             if (responsibility.includes(text)) {
                               return (
                                 <span key={textIndex}>
@@ -258,7 +258,7 @@ const InternshipDetail = () => {
                               );
                             }
                             return null;
-                          }) || responsibility}
+                          }) : responsibility}
                         </span>
                       </li>
                     )

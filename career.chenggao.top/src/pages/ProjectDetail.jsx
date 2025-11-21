@@ -7,6 +7,42 @@ const ProjectDetail = () => {
   const navigate = useNavigate()
 
   const projectDetails = {
+    'dataease-ai-analysis': {
+      title: 'Dataease看板AI帮助流分析',
+      subtitle: '一起科技教育AI产品',
+      description: '主导Dataease看板AI帮助流分析，通过AI技术精准定位"沟通质量参差不齐"是转化率的核心瓶颈，创新性地提出"用AI模拟优秀辅导的结构化思考"作为解决方案。',
+      image: '/images/一起科技教育.jpg',
+      technologies: ['数据分析', 'AI产品', '产品设计', '业务洞察', 'SOP设计', '用户研究'],
+      achievements: [
+        '成功定位转化率核心瓶颈，提出AI结构化思考解决方案',
+        '设计"AI沟通卡片"三大核心模块，将数据洞察转化为可执行行动项',
+        '成为管理者追踪续报战役进度的"单一事实来源"'
+      ],
+      timeline: '2025.07 - 至今',
+      role: 'AI产品经理',
+      details: [
+        {
+          title: 'S (Situation) - 背景痛点',
+          content: '核心痛点：公司的续报战役缺乏统一、实时、准确的数据监控工具。旧的"历史学季续报大屏"无法满足"25秋续报"需求。业务挑战：管理层无法高效、直观地追踪团队和个人的续报目标完成情况，导致决策滞后。',
+          icon: <Target className="w-5 h-5" />
+        },
+        {
+          title: 'T (Task) - 核心任务',
+          content: '设计并上线全新的"25秋续报大屏"数据看板。定义看板背后所需的数据集，确保数据的准确性、实时性和业务相关性，为管理层提供可靠的决策驾驶舱。',
+          icon: <Award className="w-5 h-5" />
+        },
+        {
+          title: 'A (Action) - AI解决方案',
+          content: '主导核心功能设计：定义"AI沟通卡片"产品形态，设计每日变化摘要(What)、SOP外沟通要点(Why & How)、智能话术参考(Example)三大核心模块，将数据洞察转化为可执行的行动项。',
+          icon: <Code className="w-5 h-5" />
+        },
+        {
+          title: 'A (Action) - 项目推动',
+          content: '设计用户交互流程：规划从"筛选学生 -> 触发生成 -> 异步等待 -> 查看使用"的完整工作流。识别并解决核心依赖：敏锐识别"学情表系统化"是关键前置依赖，为AI应用构建数据基础设施。',
+          icon: <Lightbulb className="w-5 h-5" />
+        }
+      ]
+    },
     'powerbank-location': {
       title: '共享充电宝选址优化',
       subtitle: '全国大学生统计建模大赛项目',
