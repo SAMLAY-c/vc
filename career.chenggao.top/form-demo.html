@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单控件演示 - 简历网站</title>
+    <meta name="description" content="Pink老师表单控件教程演示页面">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .demo-container {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .form-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            border: 1px solid #e1e8e8;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+
+        .form-section h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .radio-item, .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .radio-item:hover, .checkbox-item:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .radio-item input, .checkbox-item input {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .radio-item.selected, .checkbox-item.selected {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .file-area {
+            border: 2px dashed #d1d5db;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            background: #f8fafc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-area:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .file-area.drag-over {
+            background: #dbeafe;
+            border-color: #1eaed5;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #95a5a6, #27ae60);
+        }
+
+        .result-area {
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 100px;
+            display: none;
+        }
+
+        .result-area.show {
+            display: block;
+        }
+
+        .result-area h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .tip {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px 0;
+            color: #856404;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #34495e;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1>🎯 表单控件完全教学演示</h1>
+        <p style="text-align: center; margin-bottom: 30px; font-size: 1.1em; color: #666;">
+            基于 Pink 老师 2025 版教程制作 • 包含 Radio、Checkbox、File 等所有表单控件
+        </p>
+
+        <form id="demoForm">
+            <!-- 1. 单选框演示 -->
+            <div class="form-section">
+                <h3>📻 1. 单选框 (Radio) - 性别选择</h3>
+                <div class="form-row">
+                    <label class="radio-item">
+                        <input type="radio" name="gender" value="male" checked>
+                        <span>👨 男性</span>
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="gender" value="female">
+                        <span>👩 女性</span>
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="gender" value="other">
+                        <span>🧑 其他</span>
+                    </label>
+                </div>
+                <div class="tip">
+                    💡 关键点：name属性相同实现互斥，value属性传递给后台，checked设置默认选中
+                </div>
+            </div>
+
+            <!-- 2. 复选框演示 -->
+            <div class="form-section">
+                <h3>☑️ 2. 复选框 (Checkbox) - 兴趣爱好</h3>
+                <div class="form-group">
+                    <div class="form-row">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="hobbies" value="coding" checked>
+                            <span>💻 编程</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="hobbies" value="reading">
+                            <span>📚 阅读</span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="hobbies" value="gaming">
+                            <span>🎮 游戏</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="hobbies" value="sports">
+                            <span>⚽ 运动</span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="hobbies" value="music">
+                            <span>🎵 音乐</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="hobbies" value="travel">
+                            <span>✈️ 旅行</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="tip">
+                    💡 关键点：name属性相同表示一组数据，可以多选，checked设置默认选中
+                </div>
+            </div>
+
+            <!-- 3. 文件上传演示 -->
+            <div class="form-section">
+                <h3>📁 3. 文件上传 (File) - 选择作品</h3>
+                <div class="file-area" id="fileArea">
+                    <p style="font-size: 1.1em; margin: 0; color: #666;">
+                        📤 点击选择文件 或 📋 拖拽文件到此处
+                    </p>
+                    <p style="font-size: 0.9em; color: #999; margin: 10px 0 0;">
+                        支持：JPG、PNG、GIF、PDF (最大 10MB) • 可多选
+                    </p>
+                </div>
+                <input type="file" id="fileInput" multiple accept=".jpg,.jpeg,.png,.gif,.pdf">
+
+                <div class="form-group" id="fileList" style="margin-top: 15px;"></div>
+
+                <div class="tip">
+                    💡 关键点：multiple支持多文件，accept限制文件类型，使用美化按钮替代原生控件
+                </div>
+            </div>
+
+            <!-- 操作按钮 -->
+            <div class="form-section">
+                <button type="button" class="btn" onclick="showFormResult()">🔍 查看表单数据</button>
+                <button type="button" class="btn btn-secondary" onclick="clearForm()">🗑️ 清空表单</button>
+                <button type="submit" class="btn" onclick="event.preventDefault(); submitForm()">✅ 提交表单</button>
+            </div>
+        </form>
+
+        <!-- 结果显示区域 -->
+        <div id="resultArea" class="result-area">
+            <h4>📊 表单数据结果</h4>
+            <div id="resultContent"></div>
+        </div>
+
+        <!-- 返回首页链接 -->
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="/" class="back-link">🏠 返回简历首页</a>
+        </div>
+    </div>
+
+    <script>
+        // 文件上传区域事件处理
+        const fileArea = document.getElementById('fileArea');
+        const fileInput = document.getElementById('fileInput');
+
+        // 点击文件区域触发文件选择
+        fileArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // 拖拽处理
+        fileArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileArea.classList.add('drag-over');
+        });
+
+        fileArea.addEventListener('dragleave', () => {
+            fileArea.classList.remove('drag-over');
+        });
+
+        fileArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileArea.classList.remove('drag-over');
+
+            const files = e.dataTransfer.files;
+            fileInput.files = files;
+            displayFileList(files);
+        });
+
+        // 文件选择处理
+        fileInput.addEventListener('change', (e) => {
+            displayFileList(e.target.files);
+        });
+
+        // 显示文件列表
+        function displayFileList(files) {
+            const fileListDiv = document.getElementById('fileList');
+
+            if (files.length === 0) {
+                fileListDiv.innerHTML = '';
+                return;
+            }
+
+            let fileListHTML = '<strong>📁 已选择文件：</strong><br>';
+
+            for (let i = 0; i < Math.min(files.length, 5); i++) {
+                const file = files[i];
+                const fileSize = formatFileSize(file.size);
+                fileListHTML += `• ${file.name} (${fileSize})<br>`;
+            }
+
+            if (files.length > 5) {
+                fileListHTML += `• ... 还有 ${files.length - 5} 个文件<br>`;
+            }
+
+            fileListDiv.innerHTML = fileListHTML;
+        }
+
+        // 格式化文件大小
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // 显示表单结果
+        function showFormResult() {
+            const formData = new FormData(document.getElementById('demoForm'));
+            const resultArea = document.getElementById('resultArea');
+            const resultContent = document.getElementById('resultContent');
+
+            let resultHTML = '<h5>📋 表单数据详情：</h5>';
+
+            // 获取性别
+            const gender = document.querySelector('input[name="gender"]:checked');
+            if (gender) {
+                const genderText = gender.value === 'male' ? '男性' :
+                                   gender.value === 'female' ? '女性' : '其他';
+                resultHTML += `<p><strong>🚻 性别：</strong> ${genderText}</p>`;
+            }
+
+            // 获取爱好
+            const hobbies = document.querySelectorAll('input[name="hobbies"]:checked');
+            if (hobbies.length > 0) {
+                const hobbyNames = {
+                    'coding': '💻 编程',
+                    'reading': '📚 阅读',
+                    'gaming': '🎮 游戏',
+                    'sports': '⚽ 运动',
+                    'music': '🎵 音乐',
+                    'travel': '✈️ 旅行'
+                };
+                const selectedHobbies = Array.from(hobbies).map(h => hobbyNames[h.value] || h.value).join(' ');
+                resultHTML += `<p><strong>☑️ 爱好：</strong> ${selectedHobbies}</p>`;
+            }
+
+            // 获取文件
+            const files = fileInput.files;
+            if (files.length > 0) {
+                resultHTML += `<p><strong>📁 文件：</strong> ${files.length} 个文件<br>`;
+                for (let i = 0; i < Math.min(files.length, 3); i++) {
+                    resultHTML += `• ${files[i].name} (${formatFileSize(files[i].size)})<br>`;
+                }
+                if (files.length > 3) {
+                    resultHTML += `• ... 还有 ${files.length - 3} 个文件`;
+                }
+            }
+
+            resultContent.innerHTML = resultHTML;
+            resultArea.classList.add('show');
+
+            // 滚动到结果区域
+            resultArea.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 清空表单
+        function clearForm() {
+            document.getElementById('demoForm').reset();
+            document.getElementById('fileList').innerHTML = '';
+            document.getElementById('resultArea').classList.remove('show');
+        }
+
+        // 提交表单（模拟）
+        function submitForm() {
+            showFormResult();
+
+            // 显示成功消息
+            const resultContent = document.getElementById('resultContent');
+            const successMessage = `
+                <div style="background: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                    <strong>✅ 表单提交成功！</strong><br>
+                    <span style="font-size: 0.9em;">在实际应用中，这里会发送数据到服务器</span>
+                </div>
+            `;
+            resultContent.innerHTML += successMessage;
+        }
+
+        // 选中效果
+        document.querySelectorAll('.radio-item, .checkbox-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // 移除同组其他选中状态
+                if (this.querySelector('input[type="radio"]')) {
+                    document.querySelectorAll('.radio-item').forEach(r => r.classList.remove('selected'));
+                }
+
+                // 切换自己的选中状态
+                if (this.querySelector('input:checked')) {
+                    this.classList.add('selected');
+                } else {
+                    this.classList.remove('selected');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

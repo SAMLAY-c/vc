@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单控件练习 - Pink老师教程</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .form-group h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        .radio-group, .checkbox-group {
+            margin-bottom: 15px;
+        }
+
+        .radio-item, .checkbox-item {
+            margin-bottom: 8px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #f9f9f9;
+        }
+
+        .radio-item:hover, .checkbox-item:hover {
+            background: #e9ecef;
+            border-color: #3498db;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        label {
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .file-upload {
+            border: 2px dashed #3498db;
+            padding: 20px;
+            text-align: center;
+            background: #e8f4fd;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .file-upload:hover {
+            background: #d6e9f8;
+            border-color: #2980b9;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+
+        .result {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .success {
+            background: #d1f2eb;
+            border-color: #b7ddc8;
+            color: #155724;
+        }
+
+        .error {
+            background: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎯 表单控件完全练习手册</h1>
+
+    <form id="surveyForm">
+        <!-- 性别选择：单选框 -->
+        <div class="form-group">
+            <h3>🚻 1. 单选框练习 - 选择性别</h3>
+            <div class="radio-group">
+                <div class="radio-item">
+                    <input type="radio" id="male" name="gender" value="1" checked>
+                    <label for="male">👨 男性</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="female" name="gender" value="0">
+                    <label for="female">👩 女性</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="other" name="gender" value="2">
+                    <label for="other">🤖 其他</label>
+                </div>
+            </div>
+            <p><strong>💡 小知识：</strong>name属性相同的radio会互斥，只能选择一个</p>
+        </div>
+
+        <!-- 爱好选择：复选框 -->
+        <div class="form-group">
+            <h3>🎮 2. 复选框练习 - 选择爱好</h3>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="coding" name="hobbies" value="coding" checked>
+                    <label for="coding">💻 编程</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="gaming" name="hobbies" value="gaming">
+                    <label for="gaming">🎮 游戏</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="reading" name="hobbies" value="reading">
+                    <label for="reading">📚 阅读</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sports" name="hobbies" value="sports">
+                    <label for="sports">⚽ 运动</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="music" name="hobbies" value="music">
+                    <label for="music">🎵 音乐</label>
+                </div>
+            </div>
+            <p><strong>💡 小知识：</strong>checkbox可以多选，name相同表示一组数据</p>
+        </div>
+
+        <!-- 文件上传：文件域 -->
+        <div class="form-group">
+            <h3>📁 3. 文件上传练习 - 选择作品</h3>
+            <div class="file-upload" onclick="document.getElementById('fileInput').click()">
+                <p>📤 点击选择文件或拖拽文件到此处</p>
+                <p style="font-size: 12px; color: #666;">支持：JPG, PNG, GIF, PDF (最大5MB)</p>
+            </div>
+            <input type="file" id="fileInput" multiple accept=".jpg,.jpeg,.png,.gif,.pdf" onchange="handleFileSelect(event)">
+            <div id="fileList" style="margin-top: 10px;"></div>
+            <p><strong>💡 小知识：</strong>multiple支持多文件，accept限制文件类型</p>
+        </div>
+
+        <!-- 提交按钮 -->
+        <div class="form-group">
+            <button type="submit" class="submit-btn">🚀 提交表单</button>
+        </div>
+    </form>
+
+    <!-- 结果显示区域 -->
+    <div id="result" class="result">
+        <h3>📊 表单提交结果：</h3>
+        <div id="resultContent"></div>
+    </div>
+
+    <script>
+        // 文件选择处理
+        function handleFileSelect(event) {
+            const files = event.target.files;
+            const fileList = document.getElementById('fileList');
+
+            if (files.length > 0) {
+                let fileNames = '<strong>📁 选择的文件：</strong><br>';
+                for (let i = 0; i < files.length; i++) {
+                    fileNames += `• ${files[i].name} (${formatFileSize(files[i].size)})<br>`;
+                }
+                fileList.innerHTML = fileNames;
+            } else {
+                fileList.innerHTML = '';
+            }
+        }
+
+        // 文件大小格式化
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // 表单提交处理
+        document.getElementById('surveyForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // 阻止默认提交行为
+
+            // 获取性别选择
+            const gender = document.querySelector('input[name="gender"]:checked');
+
+            // 获取爱好选择（复选框可能有多个）
+            const hobbies = document.querySelectorAll('input[name="hobbies"]:checked');
+            const hobbyValues = Array.from(hobbies).map(hobby => hobby.value);
+
+            // 获取选择的文件
+            const files = document.getElementById('fileInput').files;
+
+            // 显示结果
+            const resultDiv = document.getElementById('result');
+            const resultContent = document.getElementById('resultContent');
+
+            let resultHTML = '';
+
+            // 性别结果
+            if (gender) {
+                const genderText = gender.value === '1' ? '男性' :
+                                 gender.value === '0' ? '女性' : '其他';
+                resultHTML += `<p><strong>🚻 性别：</strong> ${genderText}</p>`;
+            }
+
+            // 爱好结果
+            if (hobbyValues.length > 0) {
+                const hobbyNames = {
+                    'coding': '💻 编程',
+                    'gaming': '🎮 游戏',
+                    'reading': '📚 阅读',
+                    'sports': '⚽ 运动',
+                    'music': '🎵 音乐'
+                };
+
+                const selectedHobbies = hobbyValues.map(h => hobbyNames[h] || h).join(' ');
+                resultHTML += `<p><strong>🎮 爱好：</strong> ${selectedHobbies}</p>`;
+            }
+
+            // 文件结果
+            if (files.length > 0) {
+                resultHTML += `<p><strong>📁 上传文件：</strong> ${files.length} 个文件</p>`;
+                for (let i = 0; i < Math.min(files.length, 3); i++) {
+                    resultHTML += `  • ${files[i].name} (${formatFileSize(files[i].size)})<br>`;
+                }
+                if (files.length > 3) {
+                    resultHTML += `  • ... 还有 ${files.length - 3} 个文件<br>`;
+                }
+            }
+
+            // 显示结果
+            resultContent.innerHTML = resultHTML;
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result success';
+
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+            console.log('表单数据：', {
+                gender: gender ? gender.value : null,
+                hobbies: hobbyValues,
+                files: Array.from(files).map(f => f.name)
+            });
+        });
+
+        // 拖拽上传功能
+        const fileUploadDiv = document.querySelector('.file-upload');
+
+        fileUploadDiv.addEventListener('dragover', function(event) {
+            event.preventDefault();
+            fileUploadDiv.style.borderColor = '#2980b9';
+            fileUploadDiv.style.background = '#d6e9f8';
+        });
+
+        fileUploadDiv.addEventListener('dragleave', function(event) {
+            event.preventDefault();
+            fileUploadDiv.style.borderColor = '#3498db';
+            fileUploadDiv.style.background = '#e8f4fd';
+        });
+
+        fileUploadDiv.addEventListener('drop', function(event) {
+            event.preventDefault();
+            fileUploadDiv.style.borderColor = '#3498db';
+            fileUploadDiv.style.background = '#e8f4fd';
+
+            const files = event.dataTransfer.files;
+            document.getElementById('fileInput').files = files;
+            handleFileSelect({ target: { files: files } });
+        });
+
+        // 清空表单功能
+        function clearForm() {
+            document.getElementById('surveyForm').reset();
+            document.getElementById('fileList').innerHTML = '';
+            document.getElementById('result').style.display = 'none';
+        }
+
+        // 添加清空按钮
+        const clearBtn = document.createElement('button');
+        clearBtn.textContent = '🗑️ 清空表单';
+        clearBtn.className = 'submit-btn';
+        clearBtn.style.background = '#6c757d';
+        clearBtn.style.marginLeft = '10px';
+        clearBtn.onclick = clearForm;
+
+        document.querySelector('.submit-btn').parentNode.appendChild(clearBtn);
+    </script>
+</body>
+</html>

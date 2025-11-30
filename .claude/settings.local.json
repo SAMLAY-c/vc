@@ -34,7 +34,10 @@
       "Bash(ping:*)",
       "Bash(git remote set-url:*)",
       "Bash(ssh-add:*)",
-      "Bash(ssh:*)"
+      "Bash(ssh:*)",
+      "Bash(curl:*)",
+      "Bash(cat:*)",
+      "Bash(lsof:*)"
     ],
     "deny": [],
     "ask": []

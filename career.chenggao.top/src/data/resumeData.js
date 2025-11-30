@@ -10,7 +10,7 @@ export const personalInfo = {
   school: "天津师范大学",
   status: "在读本科生",
   email: "15396631779@163.com",
-  github: "https://github.com/SAM-yuan-shan",
+  github: "https://github.com/SAMLAY-c",
   personalWebsite: "https://life.chenggao.top"
 }
 
@@ -212,6 +212,6 @@ export const portfolioData = [
 export const links = {
   personalWebsite: "https://life.chenggao.top",
   wechatPublic: "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzkyMTM4MzQ5Mw==&action=getalbum&album_id=4105509608708521990#wechat_redirect",
-  github: "https://github.com/SAM-yuan-shan",
+  github: "https://github.com/SAMLAY-c",
   resume: "/resume.pdf"
 }
