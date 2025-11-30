@@ -4,8 +4,13 @@ import { Upload, Send, CheckCircle2, Mail, Github, Linkedin, Loader2 } from 'luc
 const ContactForm = () => {
   // --- 状态管理 (React State) ---
   const [collabType, setCollabType] = useState('job'); // 单选状态
-  const [interests, setInterests] = useState(['coding']); // 复选状态
+  const [interests, setInterests] = useState([]); // 复选状态
   const [fileName, setFileName] = useState(''); // 文件名展示
+
+  // --- 【新增】本节课知识点的状态管理 ---
+  const [budget, setBudget] = useState('');       // 对应 Select 下拉菜单
+  const [message, setMessage] = useState('');     // 对应 Textarea 文本域
+  const [isSubmitting, setIsSubmitting] = useState(false); // 对应 Button disabled 状态
 
   // --- 引用 (用于隐藏原本丑陋的文件上传按钮) ---
   const fileInputRef = useRef(null);
@@ -27,21 +32,17 @@ const ContactForm = () => {
     }
   };
 
-  // 3. 表单提交处理（模拟）
+  // --- 【新增】模拟提交函数 (为了演示 Button 的 disabled) ---
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // 阻止默认提交刷新
+    setIsSubmitting(true); // 禁用按钮
 
-    const formData = {
-      collabType,
-      interests,
-      fileName,
-      timestamp: new Date().toISOString()
-    };
-
-    console.log('📊 表单提交数据：', formData);
-
-    // 显示成功消息
-    alert(`✅ 表单提交成功！\n\n合作意向：${collabType === 'job' ? '工作机会' : collabType === 'business' ? '业务合作' : '技术交流'}\n兴趣爱好：${interests.join('、') || '无'}\n${fileName ? `上传文件：${fileName}` : ''}`);
+    // 模拟2秒后发送成功
+    setTimeout(() => {
+      alert('✅ 表单发送成功！(模拟)');
+      setIsSubmitting(false); // 恢复按钮
+      // 这里可以清空表单...
+    }, 2000);
   };
 
   return (
@@ -50,10 +51,13 @@ const ContactForm = () => {
 
       <form className="space-y-6" onSubmit={handleSubmit}>
 
-        {/* --- 知识点1: 单选框 (Radio) - 场景：合作类型 --- */}
+        {/* --- 1. 单选框 (Radio) - 使用 Label 包裹法 --- */}
+        {/* Pink老师知识点：用 label 包裹 input，点击文字也能选中 */}
         <div>
-          <label className="block text-gray-700 mb-3 font-medium">您希望建立什么样的联系？(单选)</label>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <label className="block text-gray-300 mb-3 font-medium">
+            您希望建立什么样的联系？(单选)
+          </label>
+          <div className="flex gap-4">
             {['job', 'business', 'chat'].map((type) => {
               const typeInfo = {
                 job: { label: '工作机会', icon: '💼' },
@@ -62,93 +66,154 @@ const ContactForm = () => {
               };
 
               return (
-                <label key={type} className="cursor-pointer flex items-center gap-3 p-4 border-2 rounded-lg transition-all duration-200 hover:bg-blue-50 hover:border-blue-300">
-                  {/* 隐藏原生Radio，用Tailwind自定义样式 */}
+                // 【修改点】外层标签必须是 <label>，且包含 input
+                <label key={type} className="cursor-pointer flex items-center gap-3 group">
+                  {/* 核心：input 被包在 label 里面 */}
                   <input
                     type="radio"
-                    name="collaboration_type" // 核心属性 name 实现分组
-                    value={type} // 核心属性 value 传递给后台
-                    checked={collabType === type} // React控制的 checked 状态
-                    onChange={(e) => setCollabType(e.target.value)} // React事件处理
-                    className="hidden" // 隐藏原生样式
+                    name="collaboration_type"
+                    value={type}
+                    checked={collabType === type}
+                    onChange={(e) => setCollabType(e.target.value)}
+                    className="hidden" // 即使隐藏了，label的点击触发依然有效
                   />
-                  {/* 自定义美化外观 */}
-                  <div className={`w-5 h-5 rounded-full flex items-center justify-center ${collabType === type ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}>
-                    {collabType === type && <CheckCircle2 size={16} />}
-                    </div>
-                  <span className="text-gray-700 font-medium">{typeInfo[type].icon} {typeInfo[type].label}</span>
+
+                  {/* 自定义样式的小圆点 */}
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center
+                    ${collabType === type ? 'border-blue-400' : 'border-gray-500 group-hover:border-blue-300'}`}>
+                    {collabType === type && <div className="w-2.5 h-2.5 bg-blue-400 rounded-full" />}
+                  </div>
+
+                  {/* 这里的文字，因为被 label 包裹，所以点击它也能切换选项 */}
+                  <span className="text-gray-300 group-hover:text-white capitalize">
+                    {typeInfo[type].icon} {typeInfo[type].label}
+                  </span>
                 </label>
               );
             })}
           </div>
-          <p className="text-xs text-gray-500 mt-2">💡 Pink老师知识点：name属性相同实现互斥，value属性传递给后台，checked设置默认选中</p>
+          <p className="text-xs text-gray-500 mt-2">💡 Pink老师知识点：使用 label 包裹后，点击文字也能选中选项</p>
         </div>
 
-        {/* --- 知识点2: 复选框 (Checkbox) - 场景：感兴趣的领域 --- */}
+        {/* --- 2. 复选框 (Checkbox) - 使用 Label 包裹法 --- */}
         <div>
-          <label className="block text-gray-700 mb-3 font-medium">您对林承列的哪些背景感兴趣？(多选)</label>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {['AI工具应用', '产品逻辑', '数据分析', '前端开发', '经济学视角', '用户增长'].map((interest) => (
-              <label key={interest} className="cursor-pointer flex items-center gap-3 p-4 border-2 rounded-lg transition-all duration-200 hover:bg-blue-50 hover:border-blue-300">
-                {/* 隐藏原生Checkbox */}
+          <label className="block text-gray-300 mb-3 font-medium">
+            您对林承列的哪些背景感兴趣？&nbsp;(多选)
+          </label>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            {['AI工具应用', '产品逻辑', '数据分析', '前端开发', '经济学视角'].map((interest) => (
+              // 【修改点】外层使用 <label>
+              <label key={interest} className={`
+                cursor-pointer p-3 rounded-lg border transition-all flex items-center justify-between
+                ${interests.includes(interest)
+                  ? 'bg-blue-500/20 border-blue-400 text-blue-100'
+                  : 'bg-white/5 border-transparent hover:bg-white/10 text-gray-400'}
+              `}>
+                <span>{interest}</span>
+                {/* input 被包含在内 */}
                 <input
                   type="checkbox"
-                  name="interests" // 核心属性 name 实现分组
-                  value={interest} // 核心属性 value
-                  checked={interests.includes(interest)} // React数组判断是否选中
-                  onChange={() => handleInterestChange(interest)} // React事件处理
-                  className="hidden" // 隐藏原生样式
+                  name="interests"
+                  value={interest}
+                  checked={interests.includes(interest)}
+                  onChange={() => handleInterestChange(interest)}
+                  className="hidden"
                 />
-                {/* 自定义美化外观 */}
-                <div className={`w-5 h-5 rounded-full flex items-center justify-center ${interests.includes(interest) ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}>
-                  {interests.includes(interest) && <CheckCircle2 size={16} />}
-                </div>
-                <span className="text-gray-700 font-medium">{interest}</span>
+                {interests.includes(interest) && <CheckCircle2 size={16} />}
               </label>
             ))}
           </div>
-          <p className="text-xs text-gray-500 mt-2">💡 Pink老师知识点：name属性相同表示一组数据，可以多选，checked设置默认选中</p>
+          <p className="text-xs text-gray-500 mt-2">💡 Pink老师知识点：label 包裹后，点击选项文字也能选中</p>
         </div>
 
-        {/* --- 知识点3: 文件域 (File) - 场景：上传简历或项目文档 --- */}
+        {/* --- 4. 文件上传 (File) - 使用 Label 替代 Div --- */}
         <div>
-          <label className="block text-gray-700 mb-3 font-medium">附件上传 (JD或项目文档)</label>
+          <label className="block text-gray-300 mb-3 font-medium">附件上传</label>
 
-          {/* Pink老师美化技巧：用漂亮的div触发隐藏的input */}
-          <div
-            onClick={() => fileInputRef.current.click()} // 点击div触发input
-            className="border-2 border-dashed border-blue-400 rounded-lg p-8 text-center cursor-pointer transition-all duration-200 hover:bg-blue-50 hover:border-blue-500"
-          >
-            <Upload size={32} className="text-blue-400 mx-auto mb-2" />
-            <p className="text-gray-700 font-medium">
-              {fileName ? `📄 ${fileName}` : '📤 点击选择文件或拖拽到此处'}
+          {/* 【修改点】这里把外层 div 换成了 label，这是最完美的做法 */}
+          {/* 因为 label 包裹了 input type="file"，所以点击 label 区域直接就会触发文件选择，连 JS 的 useRef 都不需要了！ */}
+          <label className="border-2 border-dashed border-gray-500 hover:border-blue-400 rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer transition-colors group">
+            <Upload className="w-8 h-8 text-gray-400 group-hover:text-blue-400 mb-2" />
+            <p className="text-sm text-gray-400">
+              {fileName ? <span className="text-blue-400 font-bold">{fileName}</span> : "点击上传文件 (支持 PDF, Word)"}
             </p>
-            <p className="text-sm text-gray-500">
-              支持：PDF, Word, 图片 (最大10MB) • 可多选
-            </p>
+
+            {/* input 被包含在内 */}
+            <input
+              type="file"
+              className="hidden"
+              name="attachment"
+              accept=".pdf,.doc,.docx"
+              onChange={handleFileChange}
+            />
+          </label>
+          <p className="text-xs text-gray-500 mt-2">💡 Pink老师知识点：使用 &lt;label&gt; 包裹 input type="file"，无需 JS 就能触发</p>
+        </div>
+
+        {/* --- 【知识点1：下拉列表 select】 --- */}
+        {/* 场景：如果是"业务合作"，需要选择预算范围 */}
+        {collabType === 'business' && (
+          <div className="animate-fade-in">
+            <label className="block text-gray-700 mb-2 font-medium">
+              预计预算范围 (Select演示)
+            </label>
+            {/* Pink老师讲的 select 标签 */}
+            <select
+              value={budget}
+              onChange={(e) => setBudget(e.target.value)}
+              className="w-full bg-white/5 border border-gray-600 rounded-lg p-3 text-gray-900 focus:border-blue-400 focus:outline-none appearance-none"
+            >
+              {/* Pink老师讲的 option 标签 */}
+              <option value="" className="text-gray-500">请选择预算范围...</option>
+              <option value="small" className="text-gray-900">1万以下 - 小型项目</option>
+              <option value="medium" className="text-gray-900">1万-5万 - 中型项目</option>
+              <option value="large" className="text-gray-900">5万以上 - 大型项目</option>
+            </select>
+            <p className="text-xs text-gray-500 mt-1">💡 Pink老师知识点：这是使用 HTML5 &lt;select&gt; 标签制作的</p>
           </div>
+        )}
 
-          {/* 隐藏真正的文件input */}
-          <input
-            type="file"
-            ref={fileInputRef} // React引用
-            className="hidden" // 完全隐藏
-            name="attachment" // 核心属性 name
-            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" // 核心属性 accept: 限制文件类型
-            multiple // 核心属性 multiple: 支持多文件
-            onChange={handleFileChange} // React事件处理
-          />
-          <p className="text-xs text-gray-500 mt-2">💡 Pink老师知识点：multiple支持多文件，accept限制文件类型，用漂亮的div替代丑陋的原生按钮</p>
+        {/* --- 3. 文本域 (Textarea) - 使用 htmlFor + id 关联 --- */}
+        <div>
+          {/* Pink知识点：For + ID 绑定光标聚焦 */}
+          {/* 当用户点击 "详细说明" 这几个字时，光标会自动跳进下面的 textarea 里 */}
+          <label htmlFor="message-area" className="block text-gray-300 mb-2 font-medium cursor-pointer">
+            详细说明 <span className="text-xs text-gray-500">(点击此处聚焦文本框)</span>
+          </label>
+          <textarea
+            id="message-area" // 必须有 ID 才能被 label 关联
+            rows="4"
+            placeholder="请输入您的详细需求或留言内容..."
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="w-full bg-white/5 border border-gray-600 rounded-lg p-3 text-gray-900 focus:border-blue-400 focus:outline-none resize-none"
+          ></textarea>
+          <p className="text-xs text-gray-500 mt-1">💡 Pink老师知识点：使用 htmlFor 绑定 id，点击标签就能聚焦</p>
         </div>
 
         {/* --- 提交按钮区域 --- */}
         <div className="flex flex-col sm:flex-row gap-4">
           <button
-            type="submit"
-            className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+            type="submit" // 设为 submit 以触发 form 的 onSubmit
+            disabled={isSubmitting} // Pink老师讲的 disabled 属性：为 true 时不可点
+            className={`
+              flex-1 font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2 transition-all
+              ${isSubmitting
+                ? 'bg-gray-600 cursor-not-allowed text-gray-400' // 禁用时的样式
+                : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white active:scale-95'} // 正常样式
+            `}
           >
-            <Send size={18} className="mr-2" />
-            发送合作意向
+            {isSubmitting ? (
+              <>
+                <Loader2 className="animate-spin" size={18} />
+                发送中...
+              </>
+            ) : (
+              <>
+                <Send size={18} />
+                发送消息
+              </>
+            )}
           </button>
 
           <button
@@ -163,6 +228,12 @@ const ContactForm = () => {
             🔄 重置表单
           </button>
         </div>
+
+        {/* --- 知识点：字符实体演示 (版权声明) --- */}
+        <p className="text-center text-xs text-gray-500 mt-4">
+          © 2025 林承列 | Built with React & Tailwind CSS
+        </p>
+
       </form>
     </div>
   );
