@@ -1,7 +1,7 @@
 [build]
   base = "career.chenggao.top/"
   command = "npm run build"
-  publish = "career.chenggao.top/"
+  publish = "."
 
 [build.environment]
   NODE_VERSION = "18"
