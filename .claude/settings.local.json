@@ -37,7 +37,12 @@
       "Bash(ssh:*)",
       "Bash(curl:*)",
       "Bash(cat:*)",
-      "Bash(lsof:*)"
+      "Bash(lsof:*)",
+      "Bash(npm run build:*)",
+      "Bash(pkill:*)",
+      "Bash(open http://localhost:5173/)",
+      "Bash(npm run dev:*)",
+      "Bash(npx vite:*)"
     ],
     "deny": [],
     "ask": []

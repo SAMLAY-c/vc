@@ -88,25 +88,31 @@ const Education = () => {
           <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">核心技能与特长</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <GraduationCap size={32} className="text-blue-600" />
+              <div className="text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <GraduationCap size={32} className="text-blue-600" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-3">个人技能</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">SQL, Excel, Power BI, Tableau, Python<br />HTML/CSS/JavaScript, React Hooks, 前端开发<br />响应式设计, API集成, 版本控制</p>
               </div>
-              <h4 className="font-semibold text-gray-900 mb-3">个人技能</h4>
-              <p className="text-sm text-gray-600 leading-relaxed">SQL, Excel, Power BI, Tableau, Python</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award size={32} className="text-emerald-600" />
+              <div className="text-center">
+                <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Award size={32} className="text-emerald-600" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-3">AI相关能力</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">AIGC技术落地, 大语言模型应用, Prompt工程, 机器学习, AI产品化与商业化, API调用</p>
               </div>
-              <h4 className="font-semibold text-gray-900 mb-3">AI相关能力</h4>
-              <p className="text-sm text-gray-600 leading-relaxed">AIGC技术落地, 大语言模型应用, Prompt工程, 机器学习, AI产品化与商业化, API调用</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin size={32} className="text-purple-600" />
+              <div className="text-center">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MapPin size={32} className="text-purple-600" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-3">产品经理（PM）相关能力</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">用户洞察, 需求分析, 数据分析, 用户增长策略, A/B测试, 全流程项目管理, 跨团队协作, 产品方案设计</p>
               </div>
-              <h4 className="font-semibold text-gray-900 mb-3">产品经理（PM）相关能力</h4>
-              <p className="text-sm text-gray-600 leading-relaxed">用户洞察, 需求分析, 数据分析, 用户增长策略, A/B测试, 全流程项目管理, 跨团队协作, 产品方案设计</p>
             </div>
           </div>
         </div>
